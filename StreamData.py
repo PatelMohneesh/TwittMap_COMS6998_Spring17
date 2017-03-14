@@ -23,7 +23,7 @@ CONSUMER_SECRET = '6rZ2NeZq7MjC0lQVA501zAtuBso845njET2TTReENJRrmJTbet'
 
 #ElasticSearch Host URL
 
-ES_HOST_URL = "ES URL"
+ES_HOST_URL = "search-tweetmap-utivo42pdpwisoy7ttbejzf7z4.us-east-1.es.amazonaws.com"
 
 
 #Connecting to the ElasticSeacrh 

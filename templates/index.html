@@ -48,9 +48,9 @@
       <input type="submit" value="update map" />
       </form>
 
-      <h3>{{key| safe}}</h3>
+      <h3>You have selected {{key| safe}}</h3>
 
-      <h3>{{dist| safe}}</h3>
+      <!--<h3>{{dist| safe}}</h3>-->
 
     <p id="demo"></p>
     <p id="demo2"></p>
@@ -67,7 +67,7 @@
         var tweets2 = {{tweets| safe}};
         var size=0;
         size = tweets2.length;
-        document.getElementById("demo").innerHTML = size;
+        document.getElementById("demo").innerHTML = "There are " + size + " tweets";
 
           var latitude = [];
           var longitude = [];
@@ -96,6 +96,10 @@
             click_lng=event.latLng.lng();
             document.getElementById("demo3").innerHTML = click_lat;
             document.getElementById("demo4").innerHTML = click_lng;
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("GET", "application.py", true);
+            xhttp.send();
           });
 
           for(var i = 0; i < size; i++) {
@@ -117,13 +121,14 @@
 
 
 
-              text += " " + latitude[i] + " , " + longitude[i] + "<br>";
+              //text += " " + latitude[i] + " , " + longitude[i] + "<br>";
       }
             document.getElementById("demo2").innerHTML = text;
 
     }
 
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7tUD_Ag0pmg8NAeIv6WyH0K7pPspiBaE&callback=initMap" async defer>
     </script>
   </body>

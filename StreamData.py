@@ -23,7 +23,7 @@ CONSUMER_SECRET = '6rZ2NeZq7MjC0lQVA501zAtuBso845njET2TTReENJRrmJTbet'
 
 #ElasticSearch Host URL
 
-ES_HOST_URL = "URL"
+ES_HOST_URL = "ES URL"
 
 
 #Connecting to the ElasticSeacrh 

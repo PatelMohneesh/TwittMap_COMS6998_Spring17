@@ -25,21 +25,37 @@
           <option value="keyword 1">movies</option>
           <option value="keyword 2">technology</option>
           <option value="keyword 3">sports</option>
-          <option value="keyword 4">soccer</option>
+          <option value="keyword 4">life</option>
           <option value="keyword 5">news</option>
-          <option value="keyword 6">engineering</option>
-          <option value="keyword 7">twitter</option>
-          <option value="keyword 8">google</option>
-          <option value="keyword 9">facebook</option>
-          <option value="keyword 10">amazon</option>
+          <option value="keyword 6">travel</option>
+          <option value="keyword 7">health</option>
+          <option value="keyword 8">awesome</option>
+          <option value="keyword 9">energy</option>
+          <option value="keyword 10">music</option>
+         </select>
+
+         <label for="geokey">Select Geolocation distance:</label>
+         <select name="geo_dist" class="form-control" id="geokey" onchange="submitForm(this)">
+          <option value="">Select Distance(km)</option>
+          <option value="d1">10</option>
+          <option value="d2">50</option>
+          <option value="d3">100</option>
+          <option value="d4">200</option>
+          <option value="d5">500</option>
+          <option value="d6">1000</option>
+          <option value="d7">5000</option>
          </select>
       <input type="submit" value="update map" />
       </form>
 
       <h3>{{key| safe}}</h3>
 
+      <h3>{{dist| safe}}</h3>
+
     <p id="demo"></p>
     <p id="demo2"></p>
+    <p id="demo3"></p>
+    <p id="demo4"></p>
 
     <div id="map"></div>
 
@@ -58,11 +74,11 @@
 
           for(var i = 0; i < size; i++) {
 
-            latitude[i] = tweets2[i]["_source"]["coordinates"][0];
-            longitude[i] = tweets2[i]["_source"]["coordinates"][1];
+            latitude[i] = tweets2[i]["_source"]["lat"];
+            longitude[i] = tweets2[i]["_source"]["lng"];
           }
 
-        var uluru = {lat: 0.00, lng: 0.00};
+        var uluru = {lat: {{lat| safe}} , lng: {{long| safe}}};
         var markers;
 
         var map = new google.maps.Map(document.getElementById('map'), {
@@ -71,13 +87,36 @@
         });
 
           var text = "";
+          var infoWindow = new google.maps.InfoWindow();
+          var click_lat = null;
+          var click_lng = null;
+
+          google.maps.event.addListener(map, "click", function(event) {
+            click_lat = event.latLng.lat();
+            click_lng=event.latLng.lng();
+            document.getElementById("demo3").innerHTML = click_lat;
+            document.getElementById("demo4").innerHTML = click_lng;
+          });
 
           for(var i = 0; i < size; i++) {
 
-              markers = new google.maps.Marker({
+            var data = tweets2[i]["_source"]["tweet"];
+            var markers = new google.maps.Marker({
               position: {lat:latitude[i] , lng: longitude[i]},
               map: map
         });
+
+              (function (markers, data) {
+                google.maps.event.addListener(markers, "click", function (e) {
+                    //Wrap the content inside an HTML DIV in order to set height and width of InfoWindow.
+                    infoWindow.setContent("<div style = 'width:200px;min-height:40px'>" + data + "</div>");
+                    infoWindow.open(map, markers);
+                });
+            })(markers, data);
+
+
+
+
               text += " " + latitude[i] + " , " + longitude[i] + "<br>";
       }
             document.getElementById("demo2").innerHTML = text;

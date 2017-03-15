@@ -1,1 +1,1 @@
-# TwittMap_COMS6998_Spring17
+Flask based web application deployed on AWS Elastic Beanstalk, that displays real time streaming tweets from ElasticSearch based on selected keywords, on Google Maps

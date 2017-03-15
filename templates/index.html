@@ -2,12 +2,11 @@
 <html>
   <head>
   <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
+
       #map {
         height: 100%;
       }
-      /* Optional: Makes the sample page fill the window. */
+
       html, body {
         height: 100%;
         margin: 0;
@@ -16,7 +15,7 @@
     </style>
   </head>
   <body>
-    <h3>Tweet Map Updated</h3>
+    <h3>TwittMap</h3>
 
       <form name="select-keyword" action="/" method="post" >
          <label for="selkey">Select Keyword:</label>
@@ -48,9 +47,7 @@
       <input type="submit" value="update map" />
       </form>
 
-      <h3>You have selected {{key| safe}}</h3>
-
-      <!--<h3>{{dist| safe}}</h3>-->
+      <h3>You have selected {{key| safe}} keyword</h3>
 
     <p id="demo"></p>
     <p id="demo2"></p>
@@ -97,9 +94,11 @@
             document.getElementById("demo3").innerHTML = click_lat;
             document.getElementById("demo4").innerHTML = click_lng;
 
+            /*
             var xhttp = new XMLHttpRequest();
             xhttp.open("GET", "application.py", true);
             xhttp.send();
+            */
           });
 
           for(var i = 0; i < size; i++) {

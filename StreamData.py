@@ -16,14 +16,14 @@ import json
 
 #Keys to be obtained from Twitter Application
 
-ACCESS_TOKEN ='598322060-85YdYXf17Ecf30GXZdT7hNqypapNUfIbk6JzCHxv'
-ACCESS_SECRET = 'M6M1MLGQCNm8Rfb3wUOMx5h9b6i0LJuA25DbDgFMhlIwk'
-CONSUMER_KEY = 'pDLnK0jtrrj3TOlj9eKr7yOQt'
-CONSUMER_SECRET = '6rZ2NeZq7MjC0lQVA501zAtuBso845njET2TTReENJRrmJTbet'
+ACCESS_TOKEN ='Twitter_Token'
+ACCESS_SECRET = 'Twitter_Token'
+CONSUMER_KEY = 'Twitter_Token'
+CONSUMER_SECRET = 'Twitter_Token'
 
 #ElasticSearch Host URL
 
-ES_HOST_URL = "search-tweetmap-utivo42pdpwisoy7ttbejzf7z4.us-east-1.es.amazonaws.com"
+ES_HOST_URL = "AWS_ES_Host"
 
 
 #Connecting to the ElasticSeacrh 

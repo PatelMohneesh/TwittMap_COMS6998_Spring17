@@ -10,7 +10,7 @@ keyword_dict = {'keyword 1':'movies','keyword 2':'technology','keyword 3':'sport
 geo_dict = {'d1':10,'d2':50,'d3':100,'d4':200,'d5':500,'d6':1000,'d7':5000,'Nothing here':0,'': 0}
 
 #Define ElasticSearch credentials
-es = Elasticsearch(hosts = [{"host" : "search-tweetmap-utivo42pdpwisoy7ttbejzf7z4.us-east-1.es.amazonaws.com",
+es = Elasticsearch(hosts = [{"host" : "AWS_Host",
                               "port" : 443}],
                               use_ssl='True')
 
